@@ -1,0 +1,15 @@
+{
+  "name": "packet-tool",
+  "version": "1.0.0",
+  "description": "Packet sniffer and analyser with modern interface",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main"
+  },
+  "author": "Mathieu Colmon (usp-3.fr)",
+  "license": "ISC",
+  "dependencies": {
+    "cap": "^0.2.1",
+    "socket.io": "^3.0.1"
+  }
+}
