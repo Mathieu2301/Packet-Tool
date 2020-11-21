@@ -484,7 +484,7 @@ input[type=text] {
 .selector > svg {
   fill: #46fffd;
   width: 25px;
-  margin: 0 15px 0 5px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
