@@ -50,7 +50,7 @@ module.exports = {
             `${source}:${ret.info.srcport}`,
             `${target}:${ret.info.dstport}`,
           );
-        } if (ret.info.protocol === PROTOCOL.IP.TCP) {
+        } else if (ret.info.protocol === PROTOCOL.IP.TCP) {
           ret = decoders.TCP(buffer, ret.offset);
 
           cb(
@@ -58,8 +58,8 @@ module.exports = {
             `${source}:${ret.info.srcport}`,
             `${target}:${ret.info.dstport}`,
           );
-        } else console.log('Unsupported IPv4 protocol: ' + PROTOCOL.IP[ret.info.protocol]);
-      } else console.log('Unsupported Ethertype: ' + PROTOCOL.ETHERNET[ret.info.type]);
+        } else console.log(`Unsupported IPv4 protocol: ${PROTOCOL.IP[ret.info.protocol]}`);
+      } else console.log(`Unsupported Ethertype: ${PROTOCOL.ETHERNET[ret.info.type]}`);
     });
   },
 
