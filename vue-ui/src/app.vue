@@ -138,7 +138,7 @@
             0,0,1,14,2.4L97.6,86a8.19,8.19,0,0,1-5.78,14Z"/>
         </svg>
       </div>
-      <div class="line" v-if="stacking">
+      <div class="line" v-if="!options.dockBottom && stacking">
         <div class="charComp"
           v-for="(char, i) in computedStack"
           :key="char"
@@ -434,6 +434,8 @@ input[type=text] {
   flex-wrap: wrap;
   row-gap: 10px;
   margin: 10px;
+  max-height: calc(50% - 60px);
+  overflow-y: auto;
   padding: 15px;
   background-color: #1359c2c2;
   border-radius: 5px;
