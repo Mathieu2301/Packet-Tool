@@ -52,6 +52,20 @@
               <div @click="setComp(buf, 1)" :class="{
                 disabled: comp[1] === buf
               }">Set B</div>
+              <svg viewBox="0 0 100 100" style="padding: 5px; fill: var(--red);"
+                @click="toggleStack(buf.UID)"
+                v-if="stacking.find((x) => x.UID === buf.UID)">
+                <path d="M8.18,100A8.19,8.19,0,0,1,2.4,86L86,2.4A8.18,8.18,0,
+                  1,1,97.6,14L14,97.6A8.15,8.15,0,0,1,8.18,100Z"/>
+                <path d="M91.82,100A8.15,8.15,0,0,1,86,97.6L2.4,14A8.18,8.18,
+                  0,0,1,14,2.4L97.6,86a8.19,8.19,0,0,1-5.78,14Z"/>
+              </svg>
+              <svg viewBox="0 0 100 100"
+                @click="toggleStack(buf.UID)"
+                v-else>
+                <!-- eslint-disable-next-line -->
+                <path d="M83.4,52c0.2-0.1,0.3-0.3,0.4-0.4c0.1-0.1,0.3-0.3,0.4-0.5l0.2-0.2l0.1-0.3c0.1-0.2,0.2-0.4,0.2-0.6  c0.1-0.2,0.1-0.4,0.1-0.6c0-0.2,0.1-0.5,0-0.8c0-0.3,0-0.5-0.1-0.7c0-0.2-0.1-0.4-0.2-0.6l-0.1-0.2l-0.2-0.3  c-0.1-0.2-0.3-0.4-0.4-0.5c-0.1-0.2-0.3-0.3-0.4-0.5c-0.1-0.1-0.3-0.2-0.4-0.3L83,45.4l-8.8-4.5l8.7-5.3c0.2-0.1,0.4-0.3,0.5-0.4  c0.2-0.1,0.3-0.3,0.4-0.4c0.1-0.1,0.3-0.3,0.4-0.5l0.2-0.2l0.1-0.3c0.1-0.2,0.2-0.4,0.2-0.6c0.1-0.2,0.1-0.4,0.1-0.6  c0-0.2,0.1-0.5,0-0.8c0-0.3,0-0.5-0.1-0.7c0-0.2-0.1-0.4-0.2-0.6l-0.1-0.2l-0.2-0.3c-0.1-0.2-0.3-0.4-0.4-0.5  c-0.1-0.2-0.3-0.3-0.4-0.5c-0.1-0.1-0.3-0.2-0.4-0.3L83,28.7L51.2,12.3c-0.2-0.1-0.4-0.2-0.5-0.2c-0.2-0.1-0.4-0.1-0.5-0.2  c-0.3-0.1-0.6-0.1-1-0.1c-0.2,0-0.4,0-0.5,0.1c-0.3,0-0.5,0.1-0.8,0.2l-0.2,0.1l-0.3,0.2c-0.6,0.3-28.9,17.7-30.3,18.5  c-0.7,0.4-1.2,0.9-1.5,1.5c-0.4,0.8-0.6,1.7-0.4,2.5l0,0.3c0.1,0.3,0.2,0.6,0.3,0.9l0.3,0.7l0.2,0.2c0.1,0.1,0.2,0.2,0.3,0.3  c0.1,0.1,0.2,0.2,0.4,0.3l0.4,0.3c0.2,0.1,3.8,2,8.6,4.5c-4.6,2.8-8.2,5-8.7,5.3c-0.7,0.4-1.2,0.9-1.5,1.5c-0.4,0.8-0.6,1.6-0.4,2.5  l0,0.3c0.1,0.3,0.2,0.6,0.3,0.9l0.4,0.7l0.2,0.2c0.1,0.1,0.2,0.2,0.3,0.3c0.1,0.1,0.3,0.3,0.5,0.4l0.3,0.2c0.1,0,3.8,1.9,8.6,4.5  c-4.6,2.8-8.2,5-8.7,5.3c-0.7,0.4-1.2,0.9-1.5,1.5c-0.4,0.8-0.6,1.6-0.4,2.5l0,0.3c0.1,0.3,0.2,0.6,0.3,0.9l0.4,0.7l0.2,0.1  c0.1,0.2,0.3,0.3,0.3,0.3c0.1,0.1,0.2,0.2,0.4,0.4l0.4,0.3c0.5,0.3,31.3,16.1,31.7,16.3c0.2,0.1,0.3,0.1,0.5,0.2  c0.3,0.1,0.6,0.2,0.9,0.2c0.1,0,0.2,0,0.4,0c0,0,0,0,0,0c0,0,0,0,0,0c0.4,0,0.8-0.1,1.2-0.2l0.2-0.1c0.2-0.1,0.5-0.2,0.7-0.3  l30.2-18.5c0.2-0.1,0.4-0.2,0.5-0.3c0.2-0.1,0.3-0.2,0.4-0.4c0.1-0.2,0.3-0.3,0.4-0.5l0.2-0.2l0.1-0.3c0.1-0.2,0.2-0.4,0.2-0.5  c0.1-0.2,0.1-0.4,0.1-0.6c0-0.2,0.1-0.5,0-0.8c0-0.3,0-0.5-0.1-0.7c0-0.2-0.1-0.4-0.2-0.6l-0.1-0.2l-0.2-0.3  c-0.1-0.2-0.3-0.4-0.4-0.5c-0.1-0.2-0.3-0.3-0.4-0.5c-0.1-0.1-0.3-0.2-0.4-0.3L83,62.2l-8.8-4.5l8.7-5.3  C83.1,52.2,83.3,52.1,83.4,52z M49.4,17l29.5,15.2L50.6,49.5C47.2,47.8,27,37.4,21.2,34.3C26.8,30.9,46,19.1,49.4,17z M78.9,65.7  L50.6,83c-3.4-1.7-23.5-12.1-29.5-15.2c2-1.2,5.7-3.5,9.9-6c8.4,4.3,17.6,9.1,17.9,9.2c0.2,0.1,0.3,0.1,0.4,0.2  c0.3,0.1,0.6,0.2,0.9,0.2c0.1,0,0.2,0,0.3,0c0,0,0,0,0.1,0c0.4,0,0.8-0.1,1.2-0.2l0.1,0l-0.8-2.4l0.9,2.3c0.2,0,0.5-0.1,0.8-0.3  l16.5-10.1L78.9,65.7z M50.6,66.2C47.2,64.5,27,54.1,21.2,51.1c2-1.2,5.7-3.5,9.8-6c8.4,4.3,17.7,9.1,17.9,9.2  c0.2,0.1,0.3,0.1,0.4,0.2c0.3,0.1,0.6,0.2,0.9,0.2c0.1,0,0.2,0,0.3,0c0,0,0,0,0,0c0.4,0,0.8-0.1,1.3-0.2l0.2-0.1  c0.2,0,0.4-0.1,0.8-0.3L69.2,44l9.6,5L50.6,66.2z"/>
+              </svg>
             </div>
           </div>
           <div class="char"
@@ -103,6 +117,27 @@
           <div v-if="comp[1].chars[i]">{{ comp[1].chars[i][1] }}</div>
         </div>
       </div>
+      <div class="topPage" v-if="!options.dockBottom">
+        <div class="text">
+          Stacking {{ stacking.length }}
+          packet{{ stacking.length > 1 ? 's' : '' }}
+        </div>
+      </div>
+      <div class="line" v-if="stacking">
+        <div class="charComp"
+          v-for="(char, i) in computedStack"
+          :key="char"
+          :class="{
+            changes: !char.changes,
+            marked: markedI && markedI.includes(i),
+          }"
+          @click="toggleMark(i)"
+        >
+          <div class="charIndex">{{ i }}</div>
+          <div>{{ char.hex }}</div>
+          <div>{{ char.asc }}</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -137,6 +172,7 @@ export default {
 
     interfaces: [],
     buffers: [],
+    stacking: [],
     savedList: [],
 
     comp: [null, null],
@@ -174,6 +210,27 @@ export default {
       } else this.savedList.unshift(this.buffers.find((x) => x.UID === UID));
 
       localStorage.setItem('savedList', JSON.stringify(this.savedList));
+    },
+
+    toggleStack(UID) {
+      if (this.stacking.find((x) => x.UID === UID)) {
+        this.stacking = this.stacking.filter((x) => x.UID !== UID);
+      } else this.stacking.unshift(this.buffers.find((x) => x.UID === UID));
+
+      localStorage.setItem('stacking', JSON.stringify(this.stacking));
+    },
+  },
+
+  computed: {
+    computedStack() {
+      const stacked = [];
+      this.stacking.forEach((p) => {
+        p.chars.forEach((c, i) => {
+          if (!stacked[i]) stacked[i] = { hex: c[0], asc: c[1], changes: true };
+          else if (stacked[i].hex !== c[0]) stacked[i] = { hex: 'X', asc: 'X' };
+        });
+      });
+      return stacked;
     },
   },
 
@@ -222,6 +279,12 @@ export default {
     }
 
     try {
+      this.stacking = JSON.parse(localStorage.getItem('stacking'));
+    } catch (e) {
+      localStorage.setItem('stacking', '[]');
+    }
+
+    try {
       this.savedList = JSON.parse(localStorage.getItem('savedList'));
       this.buffers = [...this.savedList];
     } catch (e) {
@@ -229,6 +292,7 @@ export default {
     }
 
     if (!this.savedList) this.savedList = [];
+    if (!this.stacking) this.stacking = [];
     if (!this.markedI) this.markedI = [];
     if (!this.buffers) this.buffers = [];
   },
@@ -400,7 +464,14 @@ input[type=text] {
   column-gap: 5px;
 }
 
-.selector > * {
+.selector > svg {
+  fill: #46fffd;
+  width: 25px;
+  margin: 0 15px 0 5px;
+  cursor: pointer;
+}
+
+.selector > div {
   padding: 0 20px;
   line-height: 40px;
   cursor: pointer;
@@ -408,11 +479,11 @@ input[type=text] {
   box-shadow: 2px 2px 2px #00000021;
 }
 
-.selector > :not(.disabled):nth-child(1) { background-color: var(--red) }
-.selector > :not(.disabled):nth-child(2) { background-color: var(--color1) }
+.selector > div:not(.disabled):nth-child(1) { background-color: var(--red) }
+.selector > div:not(.disabled):nth-child(2) { background-color: var(--color1) }
 
-.selector > :not(.disabled):nth-child(1):hover { background-color: #ff1a1a }
-.selector > :not(.disabled):nth-child(2):hover { background-color: #36c270 }
+.selector > div:not(.disabled):nth-child(1):hover { background-color: #ff1a1a }
+.selector > div:not(.disabled):nth-child(2):hover { background-color: #36c270 }
 
 .selector > .disabled {
   background-color: #aaaaaa;
