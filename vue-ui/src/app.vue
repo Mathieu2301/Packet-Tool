@@ -3,6 +3,10 @@
     <div class="header">
       <div class="left">Packet tool</div>
       <form @submit="setInterceptor">
+        <input type="text"
+          placeholder="Search..."
+          v-model="search">
+
         <select v-model="current.ip">
           <option v-for="(desc, ip) in interfaces" :key="ip" :value="ip">
             [{{ ip }}] {{ desc }}
@@ -23,7 +27,10 @@
       :class="{ bottomComp: options.dockBottom }"
     >
       <div class="lines">
-        <div class="line" v-for="(buf, i) in buffers" :key="i">
+        <div class="line" v-for="(buf, i) in buffers" :key="i" v-show="(
+            !search
+            || buf.title.toLowerCase().includes(search.toLowerCase())
+          )">
           <div class="bufTitle">
             <div class="leftPart">
               <svg viewBox="0 0 100 100"
@@ -174,6 +181,8 @@ export default {
     buffers: [],
     stacking: [],
     savedList: [],
+
+    search: '',
 
     comp: [null, null],
   }),
