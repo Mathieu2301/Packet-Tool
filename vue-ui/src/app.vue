@@ -129,6 +129,14 @@
           Stacking {{ stacking.length }}
           packet{{ stacking.length > 1 ? 's' : '' }}
         </div>
+        <svg viewBox="0 0 100 100" style="padding: 7px; fill: var(--red);"
+          v-if="stacking.length > 0"
+          @click="stacking = []">
+          <path d="M8.18,100A8.19,8.19,0,0,1,2.4,86L86,2.4A8.18,8.18,0,
+            1,1,97.6,14L14,97.6A8.15,8.15,0,0,1,8.18,100Z"/>
+          <path d="M91.82,100A8.15,8.15,0,0,1,86,97.6L2.4,14A8.18,8.18,
+            0,0,1,14,2.4L97.6,86a8.19,8.19,0,0,1-5.78,14Z"/>
+        </svg>
       </div>
       <div class="line" v-if="stacking">
         <div class="charComp"
