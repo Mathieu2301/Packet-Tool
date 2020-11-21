@@ -1,6 +1,8 @@
 # Packet Tool
 
-Simple, modern and intuitive tool to sniff, save, compare and analyse TCP/UDP packets.
+Simple, modern and intuitive tool to sniff, save, compare and analyse TCP/UDP packets. (Created for Among Us)
+
+![Screenshot 1](https://i.imgur.com/RxLDSiU.png)
 
 ## Project setup
 ```
